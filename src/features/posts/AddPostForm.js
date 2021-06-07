@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { unwrapResult } from '@reduxjs/toolkit'
 
 import { addNewPost } from './postsSlice'
+import { selectAllUsers } from '../users/usersSlice'
 
 
 export const AddPostForm = () => {
@@ -12,7 +13,7 @@ export const AddPostForm = () => {
     const [addRequestStatus, setAddRequestStatus] = useState('idle')
 
     const dispatch = useDispatch() //we need this hook to acess the store's dispatch, to dispatch actions.
-    const users = useSelector((state) => state.users)
+    const users = useSelector(selectAllUsers)
     
     
     const onTitleChange = (e) => setTitle(e.target.value)
